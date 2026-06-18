@@ -24,9 +24,10 @@ volatile byte schlange[QUEUE_SIZE];
 
  int queueHead = 0;
  int queueTail = 0;
+ byte Nullvalue = 0; 
 
 // Nuværende event der sendes over SPI
-volatile byte currentEvent = 0;
+volatile byte currentEvent = Nullvalue ;
 
 
 
@@ -103,7 +104,7 @@ ISR(SPI_STC_vect)
         if (queueIsEmpty())
         {
             // Hvis køen er tom, sender vi nul-events (Idling)
-            currentEvent = 0;
+            currentEvent = Nullvalue;
         }
         else
         {
