@@ -12,6 +12,7 @@ class MidiSpiListener:
         spi_mode=0,
         poll_interval=0.0001,
         callback=None,
+        sequencer
     ):
         self.bus = bus
         self.device = device
@@ -23,6 +24,7 @@ class MidiSpiListener:
         self.spi = None
         self.thread = None
         self.running = False
+        sef.seq = sequencer
 
 
     def start(self):
